@@ -11,12 +11,16 @@ from django.core.validators import (
 class Tag(models.Model):
     text = models.CharField(
         max_length=20,
+        unique=True,
         validators=[
             MinLengthValidator(1),
             MaxLengthValidator(20),
             ProhibitNullCharactersValidator(),
         ]
     )
+
+    class Meta:
+        ordering = ("text",)
 
 
 class Quote(models.Model):
@@ -33,7 +37,7 @@ class Quote(models.Model):
         validators=[
             MinLengthValidator(1),
             MaxLengthValidator(50),
-            RegexValidator("^[A-Z][A-Za-z \-']$"),
+            RegexValidator(r"^[A-Z][A-Za-z \-']$"),
             ProhibitNullCharactersValidator(),
         ]
     )
