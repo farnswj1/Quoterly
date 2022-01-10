@@ -19,6 +19,9 @@ class Tag(models.Model):
         ]
     )
 
+    def __str__(self):
+        return self.text
+
     class Meta:
         ordering = ("text",)
 
@@ -37,7 +40,7 @@ class Quote(models.Model):
         validators=[
             MinLengthValidator(1),
             MaxLengthValidator(50),
-            RegexValidator(r"^[A-Z][A-Za-z \-']$"),
+            RegexValidator(r"^[A-Z][A-Za-z \-']+$"),
             ProhibitNullCharactersValidator(),
         ]
     )

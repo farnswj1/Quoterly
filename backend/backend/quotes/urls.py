@@ -3,4 +3,6 @@ from . import views
 
 app_name = "quotes"
 
-urlpatterns = []
+urlpatterns = [
+    path('all', views.QuoteListAPIView.as_view(), name="list"),
+]
