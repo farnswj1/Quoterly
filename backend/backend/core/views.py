@@ -14,7 +14,7 @@ from .serializers import (
     UserProfileSerializer
 )
 from .filters import UserFilterSet
-from .permissions import IsAdminOrOwnerOrReadOnly
+from .permissions import IsAdminOrUser
 
 
 # Create your views here.
@@ -45,10 +45,10 @@ class RegisterUserAPIView(CreateAPIView):
 class UserUpdateAPIView(UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [IsAdminOrOwnerOrReadOnly]
+    permission_classes = [IsAdminOrUser]
 
 
 class UserDeleteAPIView(DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [IsAdminOrOwnerOrReadOnly]
+    permission_classes = [IsAdminOrUser]
