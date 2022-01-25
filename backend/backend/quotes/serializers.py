@@ -5,7 +5,7 @@ from .models import Tag, Quote
 class TagSerializer(ModelSerializer):
     class Meta:
         model = Tag
-        fields = ("text",)
+        fields = ('text',)
 
 
 class QuoteSerializer(ModelSerializer):
@@ -13,4 +13,4 @@ class QuoteSerializer(ModelSerializer):
 
     class Meta:
         model = Quote
-        fields = "__all__"
+        fields = '__all__'

@@ -11,7 +11,7 @@ def handle_saved_user(sender, instance, created, *args, **kwargs):
         email_new_user.delay(instance.id)
 
 
-@receiver(post_save, sender=User)
+@receiver(post_delete, sender=User)
 def handle_deleted_user(sender, instance, *args, **kwargs):
     user = model_to_dict(instance)
     email_deleted_user.delay(user)

@@ -9,12 +9,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-@shared_task(name="core.email_new_user")
+@shared_task(name='core.email_new_user')
 def email_new_user(_id):
     user = User.objects.get(id=_id)
 
-    subject = "Welcome to Quoterly!"
-    html_message = render_to_string("mail/new_user.html", context={"user": user})
+    subject = 'Welcome to Quoterly!'
+    html_message = render_to_string('mail/new_user.html', context={'user': user})
     plain_message = strip_tags(html_message)
     from_email = settings.EMAIL_HOST_USER
 
@@ -28,10 +28,10 @@ def email_new_user(_id):
     )
 
 
-@shared_task(name="core.email_deleted_user")
+@shared_task(name='core.email_deleted_user')
 def email_deleted_user(user):
-    subject = "Goodbye, from Quoterly!"
-    html_message = render_to_string("mail/deleted_user.html", context={"user": user})
+    subject = 'Goodbye, from Quoterly!'
+    html_message = render_to_string('mail/deleted_user.html', context={'user': user})
     plain_message = strip_tags(html_message)
     from_email = settings.EMAIL_HOST_USER
 

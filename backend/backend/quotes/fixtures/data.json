@@ -1,0 +1,173 @@
+[
+{
+  "model": "quotes.tag",
+  "pk": 1,
+  "fields": {
+    "text": "Motivation"
+  }
+},
+{
+  "model": "quotes.tag",
+  "pk": 2,
+  "fields": {
+    "text": "Perseverance"
+  }
+},
+{
+  "model": "quotes.tag",
+  "pk": 3,
+  "fields": {
+    "text": "Happy"
+  }
+},
+{
+  "model": "quotes.tag",
+  "pk": 4,
+  "fields": {
+    "text": "Sad"
+  }
+},
+{
+  "model": "quotes.tag",
+  "pk": 5,
+  "fields": {
+    "text": "Wisdom"
+  }
+},
+{
+  "model": "quotes.tag",
+  "pk": 6,
+  "fields": {
+    "text": "Funny"
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 1,
+  "fields": {
+    "text": "This is Quoterly. I hope you enjoy using this platform!",
+    "author": "John Doe",
+    "created_by": 1,
+    "tags": [
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 2,
+  "fields": {
+    "text": "Please be respectful. Have a good day!",
+    "author": "Quoterly Staff",
+    "created_by": 1,
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 3,
+  "fields": {
+    "text": "My mother always used to say: The older you get, the better you get, unless you’re a banana.",
+    "author": "Rose",
+    "created_by": 3,
+    "tags": [
+      5
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 4,
+  "fields": {
+    "text": "I’m not superstitious, but I am a little stitious.",
+    "author": "Michael Scott",
+    "created_by": 3,
+    "tags": [
+      6,
+      3,
+      1,
+      2,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 5,
+  "fields": {
+    "text": "I never feel more alone than when I’m trying to put sunscreen on my back.",
+    "author": "Kimmy Kimmel",
+    "created_by": 3,
+    "tags": [
+      2,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 6,
+  "fields": {
+    "text": "Quote 1",
+    "author": "Unknown",
+    "created_by": 5,
+    "tags": [
+      5
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 7,
+  "fields": {
+    "text": "Quote 2",
+    "author": "Unknown",
+    "created_by": 5,
+    "tags": [
+      5
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 8,
+  "fields": {
+    "text": "Quote 3",
+    "author": "Unknown",
+    "created_by": 5,
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 9,
+  "fields": {
+    "text": "Quote 4",
+    "author": "U N Owen",
+    "created_by": 5,
+    "tags": [
+      4
+    ]
+  }
+},
+{
+  "model": "quotes.quote",
+  "pk": 10,
+  "fields": {
+    "text": "Quote 5",
+    "author": "NA",
+    "created_by": 5,
+    "tags": [
+      6
+    ]
+  }
+}
+]

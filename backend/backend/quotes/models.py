@@ -7,6 +7,7 @@ from django.core.validators import (
     ProhibitNullCharactersValidator
 )
 
+
 # Create your models here.
 class Tag(models.Model):
     text = models.CharField(
@@ -23,7 +24,7 @@ class Tag(models.Model):
         return self.text
 
     class Meta:
-        ordering = ("text",)
+        ordering = ('text',)
 
 
 class Quote(models.Model):
@@ -50,9 +51,9 @@ class Quote(models.Model):
     )
     tags = models.ManyToManyField(
         Tag,
-        related_name="quotes"
+        related_name='quotes'
     )
 
     class Meta:
-        ordering = ("id",)
-        unique_together = ("id", "text", "author")
+        ordering = ('id',)
+        unique_together = ('id', 'text', 'author')
