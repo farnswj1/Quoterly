@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
+import QuoteCard from '../../components/QuoteCard/QuoteCard';
 import axios from 'axios';
 
 const UserProfile = (props) => {
@@ -21,9 +22,10 @@ const UserProfile = (props) => {
       .catch(error => {
         setLoading(false);
         setUser(null);
+        setQuotes([]);
         setError(error.response.status);
       });
-  }, []);
+  }, [props]);
 
   return (
     <Box>
@@ -37,6 +39,11 @@ const UserProfile = (props) => {
             <Typography>{user.email}</Typography>
           </Box>
         )
+      }
+      {
+        quotes.map(quote => (
+          <QuoteCard key={quote.id} quote={quote} />
+        ))
       }
     </Box>
   );
