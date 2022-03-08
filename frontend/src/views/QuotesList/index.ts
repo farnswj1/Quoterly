@@ -1,3 +1,3 @@
 import QuotesList from './QuotesList';
 
-export { QuotesList };
+export default QuotesList;

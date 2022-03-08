@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { Box, Typography } from '@mui/material';
 import axios from 'axios';
-import QuoteCard from '../../components/QuoteCard/QuoteCard';
+import QuoteCard from 'components/QuoteCard/QuoteCard';
+import Quote from 'types/Quote';
 
-const QuotesList = () => {
-  const [loading, setLoading] = useState(true);
-  const [quotes, setQuotes] = useState([]);
-  const [previousPage, setPreviousPage] = useState(null);
-  const [nextPage, setNextPage] = useState(null);
-  const [error, setError] = useState(null);
+const QuotesList: React.FC = () => {
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [quotes, setQuotes] = React.useState<Quote[]>([]);
+  const [previousPage, setPreviousPage] = React.useState<string | null>(null);
+  const [nextPage, setNextPage] = React.useState<string | null>(null);
+  const [error, setError] = React.useState<number | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const url = process.env.REACT_APP_API_URL + 'quotes/all';
     axios.get(url)
       .then(response => {

@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import QuoteCard from '../../components/QuoteCard/QuoteCard';
+import QuoteCard from 'components/QuoteCard/QuoteCard';
 import axios from 'axios';
+import { User, Quote } from 'types';
 
-const UserProfile = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
-  const [quotes, setQuotes] = useState([]);
-  const [error, setError] = useState(null);
+const UserProfile: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [user, setUser] = React.useState<User | null>(null);
+  const [quotes, setQuotes] = React.useState<Quote[] | []>([]);
+  const [error, setError] = React.useState<number | null>(null);
 
-  useEffect(() => {
-    const id = props.match.params.id;
+  React.useEffect(() => {
     const url = process.env.REACT_APP_API_URL + 'users/' + id;
     axios.get(url)
       .then(response => {
@@ -25,7 +27,7 @@ const UserProfile = (props) => {
         setQuotes([]);
         setError(error.response.status);
       });
-  }, [props]);
+  }, [id]);
 
   return (
     <Box>

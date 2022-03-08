@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Box, Typography } from '@mui/material';
 import axios from 'axios';
+import { User } from 'types'
 
 const UsersList = () => {
-  const [loading, setLoading] = useState(true);
-  const [users, setUsers] = useState([]);
-  const [previousPage, setPreviousPage] = useState(null);
-  const [nextPage, setNextPage] = useState(null);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [users, setUsers] = React.useState<User[] | []>([]);
+  const [previousPage, setPreviousPage] = React.useState<string | null>(null);
+  const [nextPage, setNextPage] = React.useState<string | null>(null);
+  const [error, setError] = React.useState(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const url = process.env.REACT_APP_API_URL + 'users/all';
     axios.get(url)
       .then(response => {

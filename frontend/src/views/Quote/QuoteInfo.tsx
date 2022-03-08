@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import QuoteCard from '../../components/QuoteCard/QuoteCard';
+import QuoteCard from 'components/QuoteCard/QuoteCard';
 import axios from 'axios';
+import { Quote } from 'types';
 
-const Quote = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [quote, setQuote] = useState(null);
-  const [error, setError] = useState(null);
+interface Props {
+  id: string
+}
 
-  useEffect(() => {
-    const id = props.match.params.id;
+const QuoteInfo: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [quote, setQuote] = React.useState<Quote | null>(null);
+  const [error, setError] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
     const url = process.env.REACT_APP_API_URL + 'quotes/' + id;
     axios.get(url)
       .then(response => {
@@ -22,7 +28,7 @@ const Quote = (props) => {
         setQuote(null);
         setError(error.response.status);
       });
-  }, [props]);
+  }, []);
 
   return (
     <Box>
@@ -36,4 +42,4 @@ const Quote = (props) => {
   );
 };
 
-export default Quote;
+export default QuoteInfo;

@@ -2,8 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Chip, Typography } from '@mui/material';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import Quote from 'types/Quote';
 
-const QuoteCard = ({ quote }) => (
+interface Props {
+  quote: Quote
+}
+
+const QuoteCard: React.FC<Props> = ({ quote }) => (
   <Card key={quote.id}>
     <CardContent>
       {
@@ -17,7 +22,7 @@ const QuoteCard = ({ quote }) => (
         <Link to={'/users/' + quote.created_by.id}>
           {quote.created_by.username}
         </Link>
-        {quote.created_by.is_staff && <VerifiedIcon color="text.primary" />}
+        {quote.created_by.is_staff && <VerifiedIcon color="primary" />}
       </Typography>
     </CardContent>
   </Card>
