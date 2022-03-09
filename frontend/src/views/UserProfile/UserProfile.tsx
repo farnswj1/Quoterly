@@ -6,7 +6,7 @@ import axios from 'axios';
 import { User, Quote } from 'types';
 
 const UserProfile: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<string>();
   const [loading, setLoading] = React.useState<boolean>(true);
   const [user, setUser] = React.useState<User | null>(null);
   const [quotes, setQuotes] = React.useState<Quote[] | []>([]);

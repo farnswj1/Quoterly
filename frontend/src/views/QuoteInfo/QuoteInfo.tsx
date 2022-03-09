@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Quote } from 'types';
 
 const QuoteInfo: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<string>();
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quote, setQuote] = React.useState<Quote | null>(null);
   const [error, setError] = React.useState<number | null>(null);
