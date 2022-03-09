@@ -10,6 +10,19 @@ const App: React.FC = () => {
   const theme: Theme = createTheme({
     palette: {
       mode: 'light'
+    },
+    typography: {
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"IBM Plex Sans"',
+        '"Trebuchet MS"',
+        '"Lucida Sans Unicode"',
+        '"Lucida Grande"',
+        '"Lucida Sans"',
+        'Arial',
+        'sans-serif'
+      ].join(',')
     }
   });
 
