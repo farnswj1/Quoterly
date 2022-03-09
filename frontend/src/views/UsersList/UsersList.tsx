@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { User } from 'types'
 
-const UsersList = () => {
+const UsersList: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
   const [users, setUsers] = React.useState<User[] | []>([]);
   const [previousPage, setPreviousPage] = React.useState<string | null>(null);

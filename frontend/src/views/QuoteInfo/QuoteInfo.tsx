@@ -5,10 +5,6 @@ import QuoteCard from 'components/QuoteCard/QuoteCard';
 import axios from 'axios';
 import { Quote } from 'types';
 
-interface Props {
-  id: string
-}
-
 const QuoteInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = React.useState<boolean>(true);
