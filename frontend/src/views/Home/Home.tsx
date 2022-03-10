@@ -7,7 +7,7 @@ const Home: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h3">Home Page</Typography>
+      <Typography variant="h4">Home Page</Typography>
     </Box>
   );
 };

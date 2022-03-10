@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Box, Container, Typography } from '@mui/material';
 import HeaderBox from './HeaderBox';
-import Token from 'auth/Token';
+import { AuthenticationContext } from 'contexts';
 
 interface Props {
-  logout: CallableFunction
+  logout: MouseEventHandler<HTMLSpanElement>
 }
 
 const Header: React.FC<Props> = ({ logout }) => {
-  const token: string | null = new Token().get();
+  const isAuthenticated = React.useContext(AuthenticationContext)
   
   return (
-    <AppBar position="static" color="transparent" elevation={0} sx={{ p: 1 }}>
+    <AppBar position="static" color="transparent" elevation={0} sx={{ px: 2, py: 1 }}>
       <Container>
         <Box
           sx={{
@@ -23,12 +23,21 @@ const Header: React.FC<Props> = ({ logout }) => {
           }}
         >
           <HeaderBox>
-            <Typography variant="h6">Quoterly</Typography>
+            <Link to="/">
+              <Typography variant="h6">Quoterly</Typography>
+            </Link>
+          </HeaderBox>
+          <HeaderBox>
+            <Link to="/quotes">
+              <Typography>Explore</Typography>
+            </Link>
           </HeaderBox>
           <HeaderBox>
             {
-              token ? (
-                <Typography>Logout</Typography>
+              isAuthenticated ? (
+                <Link to="/" onClick={logout}>
+                  <Typography>Logout</Typography>
+                </Link>
               ) : (
                 <Link to="/login">
                   <Typography>Login</Typography>

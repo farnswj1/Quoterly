@@ -1,15 +1,9 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Box, Button, FormControl, TextField, Typography } from '@mui/material';
-import Token from 'auth/Token';
 import axios from 'axios';
 
-interface Props {
-  login: CallableFunction
-}
-
-const Login: React.FC<Props> = ({ login }) => {
-  const token: string | null = new Token().get();
+const Register: React.FC = () => {
   const [success, setSuccess] = React.useState<boolean | null>(null);
   const [error, setError] = React.useState<number | null>(null);
 
@@ -18,15 +12,17 @@ const Login: React.FC<Props> = ({ login }) => {
 
     const data: FormData = new FormData();
     data.append('username', event.target.username.value);
+    data.append('email', event.target.email.value);
+    data.append('first_name', event.target.first_name.value);
+    data.append('last_name', event.target.last_name.value);
     data.append('password', event.target.password.value);
 
-    const url = process.env.REACT_APP_API_URL + 'login';
+    const url = process.env.REACT_APP_API_URL + 'users/register';
 
     axios.post(url, data)
       .then(response => {
         setSuccess(true);
         setError(null);
-        login(response.data);
       })
       .catch(error => {
         setSuccess(false);
@@ -34,14 +30,14 @@ const Login: React.FC<Props> = ({ login }) => {
       });
   };
 
-  if (success || token) {
+  if (success) {
     return <Navigate to="/" />;
   }
 
   return (
     <Box>
       <Box>
-        <Typography variant="h4" sx={{ mb: 5 }}>Login</Typography>
+        <Typography variant="h4" sx={{ mb: 5 }}>Register</Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <FormControl fullWidth variant="outlined">
             {
@@ -54,6 +50,24 @@ const Login: React.FC<Props> = ({ login }) => {
             <TextField
               id="username"
               label="Username"
+              sx={{ mb: 3 }}
+              required
+            />
+            <TextField
+              id="email"
+              label="Email"
+              sx={{ mb: 3 }}
+              required
+            />
+            <TextField
+              id="first_name"
+              label="First Name"
+              sx={{ mb: 3 }}
+              required
+            />
+            <TextField
+              id="last_name"
+              label="Last Name"
               sx={{ mb: 3 }}
               required
             />
@@ -72,11 +86,11 @@ const Login: React.FC<Props> = ({ login }) => {
       </Box>
       <Box sx={{ mt: 5 }}>
         <Typography>
-          Don't have an account? <Link to="/register">Sign up here!</Link>
+          Have an account? <Link to="/login">Log in!</Link>
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default Login;
+export default Register;

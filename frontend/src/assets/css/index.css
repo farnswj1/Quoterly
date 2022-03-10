@@ -22,13 +22,13 @@ code {
     monospace;
 }
 
-a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
 #root {
   height: inherit;
   display: inherit;
   flex-direction: inherit;
+}
+
+.header-link a {
+  text-decoration: inherit;
+  color: inherit;
 }

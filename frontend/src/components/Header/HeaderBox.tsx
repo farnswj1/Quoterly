@@ -6,7 +6,7 @@ interface Props {
 }
 
 const HeaderBox: React.FC<Props> = ({ children }) => (
-  <Box sx={{ p: 1 }}>
+  <Box className="header-link" sx={{ p: 1 }}>
     {children}
   </Box>    
 );

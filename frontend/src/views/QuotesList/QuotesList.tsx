@@ -32,12 +32,14 @@ const QuotesList: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h3">Quotes List Page</Typography>
-      {
-        quotes.map(quote => (
-          <QuoteCard key={quote.id} quote={quote} />
-        ))
-      }
+      <Typography variant="h4">"I'm not lost. I'm exploring!"</Typography>
+      <Box>
+        {
+          quotes.map(quote => (
+            <QuoteCard key={quote.id} quote={quote} />
+          ))
+        }
+      </Box>
     </Box>
   );
 };
