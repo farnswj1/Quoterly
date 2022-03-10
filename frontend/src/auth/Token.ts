@@ -37,17 +37,17 @@ export default class Token {
   }
 
   getUser(): object | null {
-    const token: string | null = sessionStorage.getItem('token');
+    const token: string | null = sessionStorage.getItem('access');
     return token ? jwt_decode(token) : null;
   }
 
   set({ access, refresh }: Credentials): void {
-    sessionStorage.setItem('token', access);
+    sessionStorage.setItem('access', access);
     sessionStorage.setItem('refresh', refresh);
   }
 
   delete(): void {
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('access');
     sessionStorage.removeItem('refresh');
   }
 }
